@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Noto Sans Tamil', system-ui, sans-serif;
+  }
+
+  body {
+    background-color: #0a0408;
+    color: #fffdfa;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #520e30;
+    color: #f5e7bf;
+  }
+}
+
+/* Custom Gold Shimmer Text */
+.gold-shimmer {
+  background: linear-gradient(
+    135deg,
+    #dfb75c 0%,
+    #fff4d0 25%,
+    #d4a337 50%,
+    #fdfbf2 75%,
+    #ba8525 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Subtle Glass Background */
+.glass-panel {
+  background: rgba(21, 8, 17, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 163, 55, 0.18);
+}
+
+.glass-panel-elevated {
+  background: rgba(36, 13, 30, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 163, 55, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0408;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #380921;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 163, 55, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #520e30;
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
